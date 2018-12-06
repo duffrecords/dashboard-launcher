@@ -1,11 +1,13 @@
 # dashboard-launcher
 
-Launch a browser dashboarrd on a system when it starts up.  Currently only Ubuntu is supported.
+Launch a browser dashboard on a system when it starts up.  The startup script will wait until the wired network connection is up before starting the browser.  Currently only the following distributions are supported:
+* Ubuntu
+* Xubuntu
 
 ### Prerequisites
 * xdotool
 * a browser
-* Upstart
+* upstart (Ubuntu) or xfce4-session (Xubuntu)
 
 ### Installation
 1. Run `./install.sh`
