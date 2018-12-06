@@ -7,6 +7,7 @@ Launch a browser dashboarrd on a system when it starts up.  Currently only Ubunt
 * a browser
 * Upstart
 
+### Installation
 1. Run `./install.sh`
 2. Edit `conf/[hostname].conf`
   1. Add the URL to launch
