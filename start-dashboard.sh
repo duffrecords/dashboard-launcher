@@ -41,6 +41,7 @@ sleep 5
 if [ ! -z "commands" ]; then
     for command in "$commands"; do
         xdotool key $command
+        sleep 2
     done
 fi
 log "setting browser to full screen mode"
