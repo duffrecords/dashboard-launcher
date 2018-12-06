@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Dashboard Launcher
+Comment=Launch a browser dashboard when the system starts up
+GenericName=Dashboard Launcher
+Exec=~/dashboard-launcher/start-dashboards.sh
+Type=Application
+Encoding=UTF-8
+
