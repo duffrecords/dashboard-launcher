@@ -21,8 +21,8 @@ source "$conf_file"
 export DISPLAY=':0'
 export XAUTHORITY="${HOME}/.Xauthority"
 [ -f "$XAUTHORITY" ] || exception "could not open $XAUTHORITY"
-which -s xdotool || exception "xdotool is not installed"
-which -s $browser || exception "$browser is not installed"
+which xdotool > /dev/null 2>&1 || exception "xdotool is not installed"
+which $browser > /dev/null 2>&1 || exception "$browser is not installed"
 
 # wait for network interface
 if [[ "$(uname -s)" == "Linux" ]]; then
@@ -37,11 +37,10 @@ fi
 
 log "starting browser"
 $browser "$dash_url" &
-sleep 5
+sleep 10
 if [ ! -z "commands" ]; then
     for command in "$commands"; do
         xdotool key $command
-        sleep 2
     done
 fi
 log "setting browser to full screen mode"
