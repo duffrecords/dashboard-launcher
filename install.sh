@@ -8,10 +8,16 @@ fi
 # install Upstart launcher
 if [[ "$(uname -s)" == "Linux" ]]; then
     if [[ "$(lsb_release -is)" == "Ubuntu" ]]; then
-        mkdir -p ~/.config/upstart
-        cp start-dashboard.conf ~/.config/upstart/
         regex="s/USER/$(whoami)/"
-        sed -i "$regex" ~/.config/upstart/start-dashboard.conf
+        if which xfce4-session > /dev/null 2>&1; then
+            destdir="~/.config/autostart/"
+            launcher="dashboard-launcher.desktop"
+        else
+            destdir="~/.config/upstart"
+            launcher="start-dashboard.conf"
+        mkdir -p $destdir
+        cp $launcher $destdir
+        sed -i "$regex" ${destdir}${launcher}
     else
         echo "$(lsb_release -is) is not supported"
         exit 1
